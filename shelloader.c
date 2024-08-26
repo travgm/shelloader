@@ -82,6 +82,8 @@ parse (char *obj_file, int execute_flag)
 
   FILE *obj;
 
+  printf("EXECUTE FLAG = %d\n\n", execute_flag);
+
   if ((obj = fopen (obj_file, "r+b")) == NULL)
     {
       fprintf (stderr, "%s[*]%s Unable to open %s, %s.\n", RED, STOP,
@@ -261,10 +263,10 @@ main (int argc, char *argv[])
   while (1)
     {
       static struct option long_options[] = {
-	{"help", no_argument,               0 , 'h'},
-	{"verbose", no_argument, &verbose_flag, 'v'},
-	{"execute", no_argument, &execute_flag, 'e'},
-	{0, 0, 0}
+	{"help", no_argument,               0 , 'h' },
+	{"verbose", no_argument, &verbose_flag, 1 },
+	{"execute", no_argument, &execute_flag, 1 },
+	{0, 0, 0, 0}
       };
       int option_index = 0;
 
